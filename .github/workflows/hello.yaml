@@ -14,3 +14,11 @@ jobs:
     steps:
       - name: print-to-screen
         run: echo "Hello World! ${{ env.TEXT }} - ${{ secrets.SECRET_NAME }}"
+    
+      - name: The job has succeeded?
+          if: ${{ success() }}
+          run: echo "Job Succeded!!!"
+          
+      - name: The job has failed?
+        if: ${{ failure() }}
+        run: echo "Job Fails :("
