@@ -1,0 +1,13 @@
+name: hello-world
+
+on:
+  push:
+    branches: ["stage"]
+    
+jobs:
+  print: 
+    runs-on: ubuntu-latest 
+
+    steps:
+      - name: print-to-screen
+        run: echo "Hello World!"
