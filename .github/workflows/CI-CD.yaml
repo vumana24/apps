@@ -31,7 +31,8 @@ jobs:
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           build-args: |
-            APP_ENV=${{ secrets.APP_ENV }}            
+            APP_ENV=${{ secrets.APP_ENV }}   
+                     
         
       - name: Run test
         run: docker run --rm --name api -p 3000:3000 vumana24/IMAGE_NAME
