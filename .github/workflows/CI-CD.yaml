@@ -57,9 +57,9 @@ jobs:
 
       - name: Update Kubernetes resources
         run: |
-          cd public-api/overlays/stage
+          cd public.api/overlays/stage
           kustomize edit set image KUSTOMIZE-DEFINED=${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
 
-          # Optional
+            # Optional
           kustomize build . > kustomized-apps.yml
           cat kustomized-apps.yml
