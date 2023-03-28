@@ -35,4 +35,4 @@ jobs:
                      
         
       - name: Run test
-        run: docker run --rm --name api -p 3000:3000 vumana24/IMAGE_NAME
+        run: docker run --rm --name api -p 3000:3000 vumana24/kubelabs_publicapi2
