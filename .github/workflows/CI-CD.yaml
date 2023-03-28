@@ -49,3 +49,17 @@ jobs:
         with:
           repository: ${{ env.DEPLOY_REPO }}
           ssh-key: ${{ secrets.OPS_TOKEN }}
+
+      - name: Setup Kustomize
+        uses: imranismail/setup-kustomize@v1
+        with:
+          kustomize-version: "3.6.1"
+
+      - name: Update Kubernetes resources
+        run: |
+          cd public-api/overlays/stage
+          kustomize edit set image KUSTOMIZE-DEFINED=${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+
+          # Optional
+          kustomize build . > kustomized-apps.yml
+          cat kustomized-apps.yml
